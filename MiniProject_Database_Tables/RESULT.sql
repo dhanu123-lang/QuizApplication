@@ -1,0 +1,44 @@
+--------------------------------------------------------
+--  File created - Sunday-December-22-2024   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table RESULT
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."RESULT" 
+   (	"RESULT_ID" NUMBER(10,0), 
+	"GRADE" VARCHAR2(20 BYTE), 
+	"SCORE" NUMBER(10,0), 
+	"STUDENT_ID" NUMBER(10,0)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into SYSTEM.RESULT
+SET DEFINE OFF;
+Insert into SYSTEM.RESULT (RESULT_ID,GRADE,SCORE,STUDENT_ID) values (22,'Failed',2,22);
+Insert into SYSTEM.RESULT (RESULT_ID,GRADE,SCORE,STUDENT_ID) values (25,'Failed',3,25);
+--------------------------------------------------------
+--  DDL for Index SYS_C007066
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYSTEM"."SYS_C007066" ON "SYSTEM"."RESULT" ("RESULT_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  Constraints for Table RESULT
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."RESULT" ADD PRIMARY KEY ("RESULT_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table RESULT
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."RESULT" ADD CONSTRAINT "FK_RESULT" FOREIGN KEY ("STUDENT_ID")
+	  REFERENCES "SYSTEM"."STUDENT" ("STUDENT_ID") ENABLE;
